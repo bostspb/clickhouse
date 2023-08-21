@@ -103,7 +103,8 @@ FROM crypto_prices
 WHERE crypto_name != ''
     AND change_1_day = -1
     AND volume > 0;
-
+```
+```
 2020-10-10  SHIBA INU   304.04  0           0   -1
 2020-10-13  LOOPREX     67.1    0.001489    0   -1    
 ```
@@ -121,7 +122,8 @@ WHERE crypto_name != ''
 AND volume > 0
 GROUP BY crypto_name
 ORDER BY min ASC;
-
+```
+```
 -1          LOOPREX     2020-10-13
 -1          SHIBA INU   2020-10-10
 -0.9999999  LiteDoge    2016-06-15

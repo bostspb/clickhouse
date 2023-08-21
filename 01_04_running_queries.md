@@ -22,8 +22,8 @@ FROM hits
 GROUP BY UserID
 ORDER BY total DESC
 LIMIT 100;
-
-
+```
+```
 ┌─────UserID─┬─total─┐
 │ 3731416266 │ 11700 │
 │ 2054361600 │  9206 │
@@ -49,8 +49,8 @@ WHERE UserID = 3731416266
 GROUP BY URL
 ORDER BY total DESC
 LIMIT 10;
-
-
+```
+```
 ┌─URL─────────────────────────────────────────────────────────────────────┬─total─┐
 │ http://image&lr=42&text=rokes=&msectionsmedia.mobile=0                  │  4325 │
 │ http://image&lr=42&text=roketa.mail.bing?rdrnd=43                       │  4273 │
@@ -81,8 +81,8 @@ WHERE UserID = 3731416266
 GROUP BY URL
 ORDER BY total DESC
 LIMIT 10;
-
-
+```
+```
 ┌─explain───────────────────────────────────────────────────────────┐
 │ Expression (Projection)                                           │
 │   Limit (preliminary LIMIT (without OFFSET))                      │
@@ -110,7 +110,8 @@ FROM hits
 GROUP BY URL
 ORDER BY total DESC
 LIMIT 10;
-
+```
+```
 ┌─URL──────────────────────────────────────────────────────────────┬──total─┐
 │ http://public_search                                             │ 311119 │
 │ http://bravoslava-230v                                           │  32907 │
@@ -132,13 +133,22 @@ Count the number of unique URLs
 ```sql
 SELECT
    uniq(URL)
-FROM hits
+FROM hits;
 
 -- 4178363
 ```
 
 Time of day had the most hits
 ```sql
+SELECT
+   EventTime,
+   count() AS hits
+FROM hits
+GROUP BY EventTime
+ORDER BY hits DESC
+LIMIT 10;
+```
+```
 ┌───────────EventTime─┬─hits─┐
 │ 2022-03-23 17:27:35 │  123 │
 │ 2022-03-18 17:03:19 │  110 │

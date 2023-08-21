@@ -22,14 +22,16 @@ CREATE TABLE crypto_prices (
    change_1_day Float32
 )
 PRIMARY KEY(crypto_name, trade_date);
-
--- Verify it worked by "describing" the table:
+```
+Verify it worked by "describing" the table
+```sql
 DESC crypto_prices;
-
--- trade_date	Date
--- crypto_name	String
--- volume	Float32
--- price	Float32
--- market_cap	Float32
--- change_1_day	Float32
+```
+```
+trade_date    Date
+crypto_name   String
+volume        Float32
+price         Float32
+market_cap    Float32
+change_1_day  Float32
 ```

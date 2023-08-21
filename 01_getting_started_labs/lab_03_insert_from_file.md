@@ -44,16 +44,17 @@ SELECT
 FROM crypto_prices
 GROUP BY crypto_name
 ORDER BY crypto_name;
-
--- 158849	
--- 84	Governance
--- 449	HBZ coin
--- 1730	Maxcoin
--- 704	Token
--- 602	#MetaHash
--- 42	01coin
--- 209	0cash
--- ...
+```
+```
+158849
+84      Governance
+449     HBZ coin
+1730    Maxcoin
+704     Token
+602     #MetaHash
+42      01coin
+209     0cash
+...
 ```
 - 158,849 - rows that are not associated with a cryptocurrency 
 - The largest quantity of prices per cryptocurrency is about 1,750, 
