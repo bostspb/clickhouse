@@ -1,4 +1,4 @@
-# Creating databases
+# 2.1 Creating databases
 
 ## The CREATE DATABASE command
 

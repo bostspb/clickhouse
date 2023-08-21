@@ -1,4 +1,4 @@
-# Running queries
+# 1.4 Running queries
 
 ## Does ClickHouse support SQL?
 Supported queries include the following:

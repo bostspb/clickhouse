@@ -1,4 +1,4 @@
-# Creating tables
+# 2.2 Creating tables
 
 ## The CREATE TABLE command
 
