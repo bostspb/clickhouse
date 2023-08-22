@@ -20,7 +20,36 @@
   - [Lab 3](02_creating_databases_and_tables_labs/lab_03_data_types.md)
 
 ## 3. ClickHouse Architecture
+- **3.1 Data storage**
+  -	**granule** - a logical breakdown of rows inside an uncompressed block; default is 8,192 rows
+  - **primary key** - the sort order of a table
+  -	**primary index** - an in-memory index containing the values of the primary keys of the first row of each granule
+  -	**part** - a folder of files consisting of the column files and index file of a subset of a table's data
+- **3.2 Choosing a primary key**
+  - PK can be defined PRIMARY KEY inside, outside and via ORDER BY
+  - Sorting is a superset of the primary key
+  - Good candidates for PK columns are:
+    - Lots of queries on a column
+    - Ordered by cardinality in ascending order
+  - Primary indexes must fit in memory
+  - Options for creating additional primary indexes
+    - Create two tables
+    - Use a projection
+    - Use a materialized view
+    - Define a skipping index
+  - Focus on defining a good primary key instead partitioning if you want to improve query performance
+- **3.3 Partitions**
+  - A partition is a logical combination of records in a table by a specified criterion
+  - In most cases, you don't need a partition key
+  - Why create a partition - for data management
+  - Partitions are only available for MergeTree family engines
+  - Only parts that have the same partition key are merged
+
 ## 4. Data Ingestion
+- Insert data from a file
+- Insert data from an external database
+- Using Table Functions and Engines
+
 ## 5. Analyzing Data
 ## 6. Deduplication
 ## 7. Materialized Views
