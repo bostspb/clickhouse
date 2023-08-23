@@ -1,0 +1,15 @@
+# docker compose up -d
+version: "3"
+services:
+  sqlex_db:
+    image: "postgres:12"
+    container_name: "postgres_db"
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_db_volume:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+volumes:
+  postgres_db_volume:

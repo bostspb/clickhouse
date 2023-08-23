@@ -46,11 +46,27 @@
   - Only parts that have the same partition key are merged
 
 ## 4. Data Ingestion
-- Insert data from a file
-- Insert data from an external database
-- Using Table Functions and Engines
+- [4.1 Insert data from a file](04_01_insert_data_from_a_file.md)
+- [4.2 Insert data from an external database](04_02_insert_data_from_from_an_external_database.md)
+- 4.3 Using Table Functions and Engines
+  - If you are going to write **a single ad-hoc query** of some data sitting in external source, 
+    then the **table function** is perfect for that use case.
+  - If you are going to run **ad-hoc queries on a regular basis**, consider using the **table engine**, 
+    which stores all the connection details and credentials so you don't have to enter them every time/
+  - If you are going to be **analyzing data** continuously, then you should use the table function 
+    or table engine to **move the data into ClickHouse** and store it in a MergeTree table.
 
 ## 5. Analyzing Data
+- 5.1 Writing Queries
+  - Lab 1
+- 5.2 Using Functions
+  - Lab 2
+- 5.3 Aggregate Function Combinators
+  - Lab 3
+- 5.4 Common Table Expressions
+  - Lab 4
+- 5.5 Other Useful Tips
+
 ## 6. Deduplication
 ## 7. Materialized Views
 ## 8. Projections
