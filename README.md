@@ -57,8 +57,7 @@
     or table engine to **move the data into ClickHouse** and store it in a MergeTree table.
 
 ## 5. Analyzing Data
-- 5.1 Writing Queries
-  - Lab 1
+- [5.1 Writing Queries](05_01_writing_queries.md)
 - 5.2 Using Functions
   - Lab 2
 - 5.3 Aggregate Function Combinators

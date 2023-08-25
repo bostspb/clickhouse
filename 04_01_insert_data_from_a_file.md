@@ -8,8 +8,7 @@ but you can specify the number of rows using the `input_format_max_rows_to_read_
 ```sql
 SELECT * 
 FROM url(
-   'https://datasets-documentation.s3.eu-west-3.amazonaws.com/nyc-taxi/tr
-ips_0.gz',
+   'https://datasets-documentation.s3.eu-west-3.amazonaws.com/nyc-taxi/trips_0.gz',
    'TabSeparatedWithNames',
    'auto'  -- default: infer the column names and data types based on the data
 ) 
@@ -19,8 +18,7 @@ LIMIT 100
 View the schema of the inferred table
 ```sql
 DESCRIBE url(
-   'https://datasets-documentation.s3.eu-west-3.amazonaws.com/nyc-taxi/tr
-ips_0.gz',
+   'https://datasets-documentation.s3.eu-west-3.amazonaws.com/nyc-taxi/trips_0.gz',
    'TabSeparatedWithNames',
    'auto'
 )
