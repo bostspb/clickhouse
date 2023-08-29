@@ -58,8 +58,8 @@
 
 ## 5. Analyzing Data
 - [5.1 Writing Queries](05_01_writing_queries.md)
-- 5.2 Using Functions
-  - Lab 2
+- [5.2 Using Functions](05_02_functions.md)
+  - [Lab 2](05_functions_labs/lab_02_functions.md)
 - 5.3 Aggregate Function Combinators
   - Lab 3
 - 5.4 Common Table Expressions
