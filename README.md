@@ -60,13 +60,33 @@
 - [5.1 Writing Queries](05_01_writing_queries.md)
 - [5.2 Using Functions](05_02_functions.md)
   - [Lab 2](05_functions_labs/lab_02_functions.md)
-- 5.3 Aggregate Function Combinators
-  - Lab 3
-- 5.4 Common Table Expressions
-  - Lab 4
-- 5.5 Other Useful Tips
+- [5.3 Aggregate Function Combinators](05_03_aggregate_function_combinators.md)
+  - [Lab 3](05_functions_labs/lab_03_aggregate_function_combinators.md)
+- [5.4 Common Table Expressions](05_04_common_table_expressions.md)
+  - [Lab 4](05_functions_labs/lab_04_common_table_expressions.md)
+- [5.5 Other Useful Tips](05_05_other_useful_tips.md)
 
 ## 6. Deduplication
+- 6.1 Overview of Deduplication
+  - Deduplication is not immediate - it is **eventual**
+    - At any moment in time your table can still have duplicates (rows with the same sorting key).
+    - The actual removal of duplicate rows occurs during the merging of parts.
+    - Your queries need to allow for the possibility of duplicates.
+  - Options for deduplication
+    - With **ReplacingMergeTree** table engine, duplicate rows with the same sorting key
+      are removed during merges. ReplacingMergeTree is a good option for emulating upsert behavior 
+      (where you want queries to return the last row inserted).<br> 
+      For a `ReplacingMergeTree` table, the last row inserted is the row that is not deleted.
+    - The **CollapsingMergeTree** and **VersionedCollapsingMergeTree** table engines use a logic where 
+      an existing row is "canceled" and a new row is inserted. <br> 
+      For a `CollapsingMergeTree` table, a "sign" column is used of type `Int8` that is set to either 1 or -1. 
+      To cancel a row, you insert a row with the same sort key but change the sign column to -1.
+- [6.2 Implementing Deduplication with ReplacingMergeTree](06_02_replacing_merge_tree.md)
+  - [Lab 2](06_deduplication_labs/lab_02_replacing_merge_tree.md)
+- [6.3 Implementing Deduplication with CollapsingMergeTree](06_03_collapsing_merge_tree.md)
+  - [Lab 3](06_deduplication_labs/lab_03_collapsing_merge_tree.md)
+- [6.4 Implementing Deduplication with VersionedCollapsingMergeTree](06_04_versioned_collapsing_merge_tree.md)  
+
 ## 7. Materialized Views
 ## 8. Projections
 ## 9. TTL: Managing Old Data
