@@ -124,3 +124,9 @@
 - [8.2 Defining Projections](08_02_defining_projections.md)
 
 ## 9. TTL: Managing Old Data
+- [9.1 Overview of TTL](09_01_overview_of_ttl.md)
+- [9.2 Removing Old Data](09_02_removing_old_data.md)
+  - [Lab 2](09_ttl_labs/lab_2_removing_old_data.md)
+- [9.3 Rolling Up Data](09_03_rolling_up_data.md)
+  - [Lab 3](09_ttl_labs/lab_3_rolling_up_data.md)
+- [9.4 Moving Data](09_04_moving_data.md)
