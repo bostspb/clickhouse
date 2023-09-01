@@ -88,5 +88,39 @@
 - [6.4 Implementing Deduplication with VersionedCollapsingMergeTree](06_04_versioned_collapsing_merge_tree.md)  
 
 ## 7. Materialized Views
+- [7.1 Views](07_01_views.md)
+  - [Lab 1](07_materialized_views_labs/lab_01_views.md)
+- [7.2 Materialized views](07_02_materialized_views.md)
+  - [Lab 2](07_materialized_views_labs/lab_02_materialized_views.md) 
+- [7.3 Summing columns](07_03_summing_columns.md)
+  - [Lab 3](07_materialized_views_labs/lab_03_summing_columns.md)
+- [7.4 Aggregating columns](07_04_aggregating_columns.md)
+  - [Lab 4](07_materialized_views_labs/lab_04_aggregating_columns.md)
+- 7.5 Best Practices
+  - Use the `TO` Clause
+  - Avoid using the `POPULATE` Clause
+  - Pausing Inserts
+    - simply stop inserting rows into your source table,
+    - wait until your materialized view is populated,
+    - verify it worked,
+    - then resume inserts.
+  - Using a Timestamp Column
+    - Add a `WHERE` clause to the view that contains a moment in time in the near future.
+    - Wait for that moment in time to arrive, and your view will start being populated with all the new rows coming in.
+    - Write a query that populates your view with all the rows whose timestamp is prior to the moment in time you 
+      selected in the view's definition.
+
 ## 8. Projections
+- 8.1 Overview of Projections
+  - projection stores the same data of a single table but in a different sort 
+    order (or in some other way that you define)
+  - the projected data is stored at the part level and is actually saved in a subfolder of each table's part
+    a single table can have multiple projections
+  - you do not need to worry about or specify when to use a projection - ClickHouse determines at query time 
+    if a query will benefit from using a projection vs. the original sort order (by determining which option 
+    processes the fewest granules)
+  - your data is stored twice, so there is a tradeoff between storage and the gain in performance
+  - inserts can take slightly longer since the data is written twice
+- [8.2 Defining Projections](08_02_defining_projections.md)
+
 ## 9. TTL: Managing Old Data
